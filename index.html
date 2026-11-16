@@ -139,9 +139,6 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 .highlight .vm { color: #BB60D5 } /* Name.Variable.Magic */
 .highlight .il { color: #40A070 } /* Literal.Number.Integer.Long */
 .highlight .err { border:0 !important; background:none !important; color:inherit !important; }
-@media (prefers-color-scheme: dark) {
-:root:not([data-theme="light"]) .highlight .hll { background:#49483e }
-}
 </style>
 <style id="hl-dark" media="not all">
 pre { line-height: 125%; }
@@ -229,6 +226,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 .highlight .vi { color: #F8F8F2 } /* Name.Variable.Instance */
 .highlight .vm { color: #F8F8F2 } /* Name.Variable.Magic */
 .highlight .il { color: #AE81FF } /* Literal.Number.Integer.Long */
+.highlight .err { border:0 !important; background:none !important; color:inherit !important; }
 </style>
 </head>
 <body>
@@ -236,7 +234,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 <div class="layout">
 <aside>
   <div class="top"><span>Sadržaj</span><button class="theme" id="theme" title="Svetla/tamna tema">◐</button></div>
-  <nav><ul><li><a href="#0-mapa-zadatka-50-poena-sta-se-uvek-trazi">0. Mapa zadatka (50 poena) – sta se uvek trazi</a></li><li><a href="#1-postavljanje-resenja-3-projekta-visual-studio-2026">1. Postavljanje resenja (3 projekta) – Visual Studio 2026</a><ul><li><a href="#korak-po-korak">Korak po korak</a></li><li><a href="#registracija-konteksta-u-di-3p-programcs">Registracija konteksta u DI (3p) – Program.cs</a></li><li><a href="#alternativa-za-brze-cli-isto-to-jednim-copy-paste">(Alternativa za brze) CLI – isto to, jednim copy-paste</a></li></ul></li><li><a href="#2-model-i-migracije-7p">2. Model i migracije (7p)</a><ul><li><a href="#21-korak-1-samo-film-init-3p">2.1 KORAK 1 – Samo Film + Init (3p)</a></li><li><a href="#22-korak-2-dodaj-projekciju-vezu-1-n-nova-migracija-4p">2.2 KORAK 2 – Dodaj Projekciju + vezu 1-N + nova migracija (4p)</a></li><li><a href="#23-primarni-kljuc-auto-inkrement-ili-ne-cesto-se-eksplicitno-trazi-u-zadatku">2.3 Primarni kljuc: AUTO-INKREMENT ili NE (cesto se eksplicitno trazi u zadatku!)</a></li><li><a href="#24-opciono-seed-podaci-bioskop-dopunjeno-ga-ima-na-kolokvijumu-verovatno-ne-traze">2.4 (Opciono) Seed podaci – Bioskop-Dopunjeno ga ima, na kolokvijumu verovatno NE traze</a></li><li><a href="#sve-komande-za-migracije-tabela-package-manager-console-dotnet-cli">Sve komande za migracije – tabela (Package Manager Console ↔ dotnet CLI)</a></li><li><a href="#ako-migracija-pogresi">Ako migracija pogresi</a></li></ul></li><li><a href="#3-linq-i-ef-cheat-sheet-sve-sto-ti-treba">3. LINQ i EF – cheat sheet (sve sto ti treba)</a></li><li><a href="#4-funkcionalnosti-minimal-api-bioskop-dopunjenominimalapiprogramcs">4. Funkcionalnosti – Minimal API (Bioskop-Dopunjeno/MinimalApi/Program.cs)</a><ul><li><a href="#41-get-filmovi-prikaz-pretraga-8p">4.1 GET /filmovi – prikaz + pretraga (8p)</a></li><li><a href="#42-post-filmovi-novi-film-5p">4.2 POST /filmovi – novi film (5p)</a></li><li><a href="#43-get-filmoviid-film-sa-projekcijama-5p">4.3 GET /filmovi/{id} – film sa projekcijama (5p)</a></li><li><a href="#44-post-filmoviidprojekcije-unos-vise-projekcija-14p-najvaznije">4.4 POST /filmovi/{id}/projekcije – unos vise projekcija (14p) ⭐ NAJVAZNIJE</a></li><li><a href="#45-put-filmoviid-izmena-update-filma-i-delete-ako-traze">4.5 PUT /filmovi/{id} – izmena (update) filma, i DELETE (ako traze)</a></li></ul></li><li><a href="#5-middleware-ispis-metode-putanje-i-status-koda-3p">5. Middleware – ispis metode, putanje i status koda (3p)</a></li><li><a href="#6-http-fajl-5p-minimum">6. .http fajl (5p) – minimum</a></li><li><a href="#7-ako-traze-kontrolere-umesto-minimal-api-vezbe-05-restwebapi">7. Ako traze KONTROLERE umesto Minimal API (Vezbe 05 – RestWebApi)</a><ul><li><a href="#71-razlike-u-podesavanju">7.1 Razlike u podesavanju</a></li><li><a href="#72-struktura-kontrolera-iz-productscontroller">7.2 Struktura kontrolera (iz ProductsController)</a></li><li><a href="#73-kompletan-filmovicontroller">7.3 Kompletan FilmoviController</a></li><li><a href="#74-minimal-api-vs-kontroleri-kratko-poredjenje">7.4 Minimal API vs kontroleri – kratko poredjenje</a></li></ul></li><li><a href="#8-plan-od-90-minuta">8. Plan od 90 minuta</a></li><li><a href="#9-kako-da-naucis-za-najkrace-vreme-plan-vezbanja">9. Kako da NAUCIS za najkrace vreme (plan vezbanja)</a><ul><li><a href="#pitanja-za-samoproveru-mogu-doci-i-usmenoteorija">Pitanja za samoproveru (mogu doci i usmeno/teorija)</a></li></ul></li><li><a href="#10-checklist-pred-predaju">10. Checklist pred predaju</a></li><li><a href="#11-cesti-problemi-i-brza-resenja">11. Cesti problemi i brza resenja</a></li></ul></nav>
+  <nav><ul><li><a href="#tekst-zadatka-original-iz-word-dokumenta">Tekst zadatka (original iz Word dokumenta)</a></li><li><a href="#0-mapa-zadatka-50-poena-sta-se-uvek-trazi">0. Mapa zadatka (50 poena) – sta se uvek trazi</a></li><li><a href="#1-postavljanje-resenja-3-projekta-visual-studio-2026">1. Postavljanje resenja (3 projekta) – Visual Studio 2026</a><ul><li><a href="#korak-po-korak">Korak po korak</a></li><li><a href="#registracija-konteksta-u-di-3p-programcs">Registracija konteksta u DI (3p) – Program.cs</a></li><li><a href="#alternativa-za-brze-cli-isto-to-jednim-copy-paste">(Alternativa za brze) CLI – isto to, jednim copy-paste</a></li></ul></li><li><a href="#2-model-i-migracije-7p">2. Model i migracije (7p)</a><ul><li><a href="#21-korak-1-samo-film-init-3p">2.1 KORAK 1 – Samo Film + Init (3p)</a></li><li><a href="#22-korak-2-dodaj-projekciju-vezu-1-n-nova-migracija-4p">2.2 KORAK 2 – Dodaj Projekciju + vezu 1-N + nova migracija (4p)</a></li><li><a href="#23-primarni-kljuc-auto-inkrement-ili-ne-cesto-se-eksplicitno-trazi-u-zadatku">2.3 Primarni kljuc: AUTO-INKREMENT ili NE (cesto se eksplicitno trazi u zadatku!)</a></li><li><a href="#24-opciono-seed-podaci-bioskop-dopunjeno-ga-ima-na-kolokvijumu-verovatno-ne-traze">2.4 (Opciono) Seed podaci – Bioskop-Dopunjeno ga ima, na kolokvijumu verovatno NE traze</a></li><li><a href="#sve-komande-za-migracije-tabela-package-manager-console-dotnet-cli">Sve komande za migracije – tabela (Package Manager Console ↔ dotnet CLI)</a></li><li><a href="#ako-migracija-pogresi">Ako migracija pogresi</a></li></ul></li><li><a href="#3-linq-i-ef-cheat-sheet-sve-sto-ti-treba">3. LINQ i EF – cheat sheet (sve sto ti treba)</a></li><li><a href="#4-funkcionalnosti-minimal-api-bioskop-dopunjenominimalapiprogramcs">4. Funkcionalnosti – Minimal API (Bioskop-Dopunjeno/MinimalApi/Program.cs)</a><ul><li><a href="#41-get-filmovi-prikaz-pretraga-8p">4.1 GET /filmovi – prikaz + pretraga (8p)</a></li><li><a href="#42-post-filmovi-novi-film-5p">4.2 POST /filmovi – novi film (5p)</a></li><li><a href="#43-get-filmoviid-film-sa-projekcijama-5p">4.3 GET /filmovi/{id} – film sa projekcijama (5p)</a></li><li><a href="#44-post-filmoviidprojekcije-unos-vise-projekcija-14p-najvaznije">4.4 POST /filmovi/{id}/projekcije – unos vise projekcija (14p) ⭐ NAJVAZNIJE</a></li><li><a href="#45-put-filmoviid-izmena-update-filma-i-delete-ako-traze">4.5 PUT /filmovi/{id} – izmena (update) filma, i DELETE (ako traze)</a></li></ul></li><li><a href="#5-middleware-ispis-metode-putanje-i-status-koda-3p">5. Middleware – ispis metode, putanje i status koda (3p)</a></li><li><a href="#6-http-fajl-5p-minimum">6. .http fajl (5p) – minimum</a></li><li><a href="#7-ako-traze-kontrolere-umesto-minimal-api-vezbe-05-restwebapi">7. Ako traze KONTROLERE umesto Minimal API (Vezbe 05 – RestWebApi)</a><ul><li><a href="#71-razlike-u-podesavanju">7.1 Razlike u podesavanju</a></li><li><a href="#72-struktura-kontrolera-iz-productscontroller">7.2 Struktura kontrolera (iz ProductsController)</a></li><li><a href="#73-kompletan-filmovicontroller">7.3 Kompletan FilmoviController</a></li><li><a href="#74-minimal-api-vs-kontroleri-kratko-poredjenje">7.4 Minimal API vs kontroleri – kratko poredjenje</a></li></ul></li><li><a href="#8-plan-od-90-minuta">8. Plan od 90 minuta</a></li><li><a href="#9-kako-da-naucis-za-najkrace-vreme-plan-vezbanja">9. Kako da NAUCIS za najkrace vreme (plan vezbanja)</a><ul><li><a href="#pitanja-za-samoproveru-mogu-doci-i-usmenoteorija">Pitanja za samoproveru (mogu doci i usmeno/teorija)</a></li></ul></li><li><a href="#10-checklist-pred-predaju">10. Checklist pred predaju</a></li><li><a href="#11-cesti-problemi-i-brza-resenja">11. Cesti problemi i brza resenja</a></li></ul></nav>
 </aside>
 <main><article>
 <h1 id="skripta-za-prvi-kolokvijum-net-ef-core-linq-veza-1-n">Skripta za prvi kolokvijum – .NET, EF Core, LINQ, veza 1-N</h1>
@@ -245,6 +243,62 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 <p><strong>Kljucna ideja:</strong> kolokvijum je ISTI zadatak sa drugim imenima. Bioskop = <strong>Film (1) → Projekcija (N)</strong>.
 Dobices npr. Autor→Knjiga, Doktor→Pregled, Kurs→Cas... Funkcionalnosti su uvek istih 4 tipa. Nauci sablon, menjaj imena.</p>
 </blockquote>
+<hr />
+<h2 id="tekst-zadatka-original-iz-word-dokumenta">Tekst zadatka (original iz Word dokumenta)</h2>
+<p><strong>Напредне .NET технологије</strong>
+<strong>Припрема за први колоквијум – 90 мин.</strong></p>
+<blockquote>
+<p><strong>Напомена:</strong> Овај задатак по обиму и тежини одговара задатку који можете очекивати на првом колоквијуму: покрива јак објекат и везу један-више, ради се 90 минута и носи 50 поена. Број поена за сваки захтев наведен је у загради.</p>
+</blockquote>
+<p>Потребно је реализовати апликацију за биоскоп. Систем треба да омогући чување података о филмовима и њиховим пројекцијама у бази података (EF Core, Code First). Један филм има више пројекција, а пројекција припада тачно једном филму. Решење организовати у више пројеката, тако да домен, приступ подацима и веб сервис буду раздвојени, а контекст базе регистровати у DI контејнеру <strong>(3п.)</strong>.</p>
+<p><strong>Модел и миграције (7п.)</strong></p>
+<p>За филм чувати:</p>
+<ul>
+<li>назив,</li>
+<li>жанр,</li>
+<li>годину снимања,</li>
+<li>трајање у минутима.</li>
+</ul>
+<p>Креирати прву миграцију под називом <strong>Init (3п.)</strong>. Након тога додати пројекције и везу један-више између филма и пројекција и креирати нову миграцију <strong>(4п.)</strong>.</p>
+<p>За пројекцију чувати:</p>
+<ul>
+<li>датум и време почетка,</li>
+<li>број сале,</li>
+<li>цену карте,</li>
+<li>филм који се приказује.</li>
+</ul>
+<p><strong>Функционалности (32п.)</strong></p>
+<p>Потребно је реализовати веб сервис који пружа следеће функционалности (свака функционалност је засебна приступна тачка):</p>
+<ol>
+<li><strong>Приказ и претрага филмова</strong> – омогућити приказ свих филмова, као и претрагу по називу и жанру. Претрага треба да подржи да буде задат један, више или ниједан критеријум <strong>(5п.)</strong>. За сваки филм вратити назив, жанр, годину снимања и укупан број пројекција <strong>(3п.)</strong>.</li>
+<li><strong>Додавање новог филма</strong> – омогућити унос новог филма са свим подацима:<ul>
+<li>ако филм са истим називом и годином снимања већ постоји, вратити 400 Bad Request <strong>(3п.)</strong>,</li>
+<li>након успешног додавања вратити 201 Created <strong>(2п.)</strong>.</li>
+</ul>
+</li>
+<li><strong>Приказ филма са пројекцијама</strong> – на основу идентификатора филма вратити податке о филму и списак његових пројекција (датум и време почетка, број сале и цена карте), уређен по времену почетка <strong>(4п.)</strong>:<ul>
+<li>ако филм са задатим идентификатором не постоји, вратити 404 Not Found <strong>(1п.)</strong>.</li>
+</ul>
+</li>
+<li><strong>Унос пројекција филма</strong> – омогућити унос више пројекција једног филма одједном:<ul>
+<li>ако филм не постоји, вратити 404 Not Found <strong>(2п.)</strong>,</li>
+<li>време почетка сваке пројекције мора бити у будућности, а цена карте већа од нуле <strong>(3п.)</strong>,</li>
+<li>иста сала у исто време не сме да се понови у захтеву <strong>(2п.)</strong>,</li>
+<li>у истој сали у исто време не сме већ постојати пројекција било ког филма; у супротном вратити 400 Bad Request у облику Problem Details, са насловом и описом из ког се виде заузети термини <strong>(4п.)</strong>,</li>
+<li>уколико било која пројекција из захтева није исправна, не уписује се ниједна; након успешног уноса вратити 201 Created <strong>(3п.)</strong>.</li>
+</ul>
+</li>
+</ol>
+<p><strong>Тестирање (5п.)</strong></p>
+<p>У .http фајлу веб сервиса написати захтеве којима се тестира свака приступна тачка, и успешни захтеви и они који враћају грешку. Потребно је покрити најмање:</p>
+<ul>
+<li>приказ свих филмова и претрагу са једним и са више критеријума,</li>
+<li>додавање новог филма и покушај додавања филма који већ постоји,</li>
+<li>приказ филма са пројекцијама и приказ непостојећег филма,</li>
+<li>успешан унос пројекција, унос са заузетим термином и унос за непостојећи филм.</li>
+</ul>
+<p><strong>Додатни захтев (3п.)</strong></p>
+<p>За сваки пристигли HTTP захтев потребно је на конзоли исписати HTTP методу и путању захтева, као и статусни код одговора.</p>
 <hr />
 <h2 id="0-mapa-zadatka-50-poena-sta-se-uvek-trazi">0. Mapa zadatka (50 poena) – sta se uvek trazi</h2>
 <table>
@@ -354,23 +408,33 @@ Desni klik na projekat → <code>Manage NuGet Packages...</code> → tab <strong
 <tr>
 <th>Projekat</th>
 <th>Paket</th>
+<th>Za sta sluzi</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td><strong>Infrastructure</strong></td>
 <td><code>Microsoft.EntityFrameworkCore.SqlServer</code></td>
+<td>EF Core + <strong>provajder za SQL Server</strong>. Daje <code>DbContext</code>, <code>DbSet</code>, LINQ upite i <code>UseSqlServer(...)</code> u <code>OnConfiguring</code>. Bez njega nema komunikacije sa bazom.</td>
 </tr>
 <tr>
 <td><strong>Infrastructure</strong></td>
 <td><code>Microsoft.EntityFrameworkCore.Tools</code></td>
+<td>Omogucava komande u <strong>Package Manager Console</strong>: <code>Add-Migration</code>, <code>Update-Database</code>, <code>Remove-Migration</code>...</td>
 </tr>
 <tr>
 <td><strong>Web projekat</strong></td>
 <td><code>Microsoft.EntityFrameworkCore.Design</code></td>
+<td>Projektni-vreme alati koje EF koristi da <strong>napravi instancu konteksta i generise kod migracija</strong>. Treba u startup projektu, jer EF migracije pokrece kroz njega.</td>
 </tr>
 </tbody>
 </table>
+<p><strong>Sta je "Web projekat"?</strong> To je ono sto pokreces (startup projekat) i sto prima HTTP zahteve – tj. <strong>onaj projekat koji ti je zadat kao API</strong>:</p>
+<ul>
+<li>ako traze <strong>Minimal API</strong> → web projekat je <code>MinimalApi</code> (sablon <em>ASP.NET Core Empty</em> / Web API bez kontrolera),</li>
+<li>ako traze <strong>kontrolere</strong> → web projekat je <code>RestWebApi</code> (Web API sa "Use controllers").</li>
+</ul>
+<p>Dakle <strong>MinimalApi i RestWebApi nisu dva projekta koja oba pravis</strong> – biras <strong>jedan</strong> od njih (zavisi sta kolokvijum trazi) i on je tvoj "Web projekat". Paket <code>Design</code> ide u taj jedan projekat.</p>
 <p>Verzija: ista <strong>10.x</strong> za sve EF pakete (npr. 10.0.x – kao u <code>Bioskop-Dopunjeno</code>). Ne mesaj verzije.</p>
 <p><strong>6) Startup projekat</strong>
 Desni klik na <strong>Web projekat → Set as Startup Project</strong> (bice podebljan). Bez ovoga migracije ne rade.</p>
@@ -778,61 +842,87 @@ Uvek pocni od <strong>deteta (N strane)</strong>.</p>
 <p>U <code>Bioskop-Dopunjeno</code> ovde fali <code>OrderBy</code> – na kolokvijumu to je 4p, nemoj zaboraviti.</p>
 </blockquote>
 <h3 id="44-post-filmoviidprojekcije-unos-vise-projekcija-14p-najvaznije">4.4 POST /filmovi/{id}/projekcije – unos vise projekcija (14p) ⭐ NAJVAZNIJE</h3>
-<p>Telo zahteva je <strong>lista</strong> (<code>List&lt;Projekcija&gt;</code>). Redosled provera:</p>
+<p>Telo zahteva je <strong>lista</strong> (<code>List&lt;Projekcija&gt;</code>). Resenje je u <strong>dve faze</strong> (kao u <code>Bioskop-Dopunjeno</code>):</p>
 <ol>
 <li>film ne postoji → <strong>404</strong></li>
-<li>za svaku: vreme u buducnosti <strong>i</strong> cena &gt; 0</li>
-<li>duplikat (sala+vreme) <strong>unutar zahteva</strong></li>
-<li>zauzet termin <strong>u bazi</strong> (bilo koji film) → <strong>400 ProblemDetails</strong> sa naslovom i opisom zauzetih termina</li>
-<li>ako ijedna greska → <strong>nista se ne upisuje</strong>; inace <code>AddRange</code> + jedan <code>SaveChanges</code> → <strong>201</strong></li>
+<li><strong>Faza 1 (provere samo nad zahtevom):</strong> za svaku projekciju vreme u buducnosti <strong>i</strong> cena &gt; 0, pa duplikat (sala + vreme) <strong>unutar zahteva</strong> → ako ima gresaka, <code>Results.Problem(...)</code> 400</li>
+<li><code>errors.Clear()</code> – lista gresaka se prazni pre faze 2</li>
+<li><strong>Faza 2 (provera u bazi):</strong> zauzet termin (bilo koji film) → <code>Results.BadRequest(...)</code> sa opisom zauzetih termina</li>
+<li>ako ijedna greska → <strong>nista se ne upisuje</strong>; inace <code>AddRange</code> + jedan <code>SaveChanges</code> u <code>try/catch</code> → <strong>201</strong>, a ako pukne → <strong>500 Problem</strong></li>
 </ol>
 <div class="highlight"><pre><span></span><code><span class="n">app</span><span class="p">.</span><span class="n">MapPost</span><span class="p">(</span><span class="s">"/filmovi/{id}/projekcije"</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">Projekcija</span><span class="o">&gt;</span><span class="w"> </span><span class="n">projekcije</span><span class="p">,</span><span class="w"> </span><span class="n">BioskopContext</span><span class="w"> </span><span class="n">context</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span>
 <span class="p">{</span>
 <span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">film</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">context</span><span class="p">.</span><span class="n">Filmovi</span><span class="p">.</span><span class="n">Find</span><span class="p">(</span><span class="n">id</span><span class="p">);</span>
-<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">film</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="k">null</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">Results</span><span class="p">.</span><span class="n">NotFound</span><span class="p">();</span><span class="w">                       </span><span class="c1">// 1</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">film</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="k">null</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">Results</span><span class="p">.</span><span class="n">NotFound</span><span class="p">();</span><span class="w">                        </span><span class="c1">// 404</span>
 
-<span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">greske</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="kt">string</span><span class="o">&gt;</span><span class="p">();</span>
+<span class="w">    </span><span class="n">List</span><span class="o">&lt;</span><span class="kt">string</span><span class="o">&gt;</span><span class="w"> </span><span class="n">errors</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[];</span>
 
-<span class="w">    </span><span class="c1">// 2) vreme i cena</span>
+<span class="w">    </span><span class="c1">// FAZA 1 – vreme i cena</span>
 <span class="w">    </span><span class="k">foreach</span><span class="w"> </span><span class="p">(</span><span class="kt">var</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">projekcije</span><span class="p">)</span>
 <span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="n">p</span><span class="p">.</span><span class="n">FilmId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">film</span><span class="p">.</span><span class="n">Id</span><span class="p">;</span><span class="w">                                            </span><span class="c1">// povezi sa filmom iz rute</span>
-<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">p</span><span class="p">.</span><span class="n">DatumVremePocetka</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">DateTime</span><span class="p">.</span><span class="n">Now</span><span class="p">)</span>
-<span class="w">            </span><span class="n">greske</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="s">$"Projekcija u sali {p.BrojSale} ({p.DatumVremePocetka}) nije u buducnosti"</span><span class="p">);</span>
-<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">p</span><span class="p">.</span><span class="n">CenaKarte</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
-<span class="w">            </span><span class="n">greske</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="s">$"Projekcija u sali {p.BrojSale} ({p.DatumVremePocetka}) mora imati cenu vecu od 0"</span><span class="p">);</span>
+<span class="w">        </span><span class="n">p</span><span class="p">.</span><span class="n">FilmId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">film</span><span class="p">.</span><span class="n">Id</span><span class="p">;</span><span class="w">                                             </span><span class="c1">// povezi sa filmom iz rute</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">p</span><span class="p">.</span><span class="n">DatumVremePocetka</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">DateTime</span><span class="p">.</span><span class="n">Now</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">p</span><span class="p">.</span><span class="n">CenaKarte</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="n">errors</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="s">$"Projekcija: mora biti u buducnosti i mora imati cenu vecu od 0"</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
 <span class="w">    </span><span class="p">}</span>
 
-<span class="w">    </span><span class="c1">// 3) duplikati u zahtevu</span>
+<span class="w">    </span><span class="c1">// FAZA 1 – duplikati unutar zahteva</span>
 <span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">duplikati</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">projekcije</span>
-<span class="w">        </span><span class="p">.</span><span class="n">GroupBy</span><span class="p">(</span><span class="n">p</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">p</span><span class="p">.</span><span class="n">BrojSale</span><span class="p">,</span><span class="w"> </span><span class="n">p</span><span class="p">.</span><span class="n">DatumVremePocetka</span><span class="w"> </span><span class="p">})</span>
-<span class="w">        </span><span class="p">.</span><span class="n">Where</span><span class="p">(</span><span class="n">g</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">g</span><span class="p">.</span><span class="n">Count</span><span class="p">()</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
+<span class="w">                    </span><span class="p">.</span><span class="n">GroupBy</span><span class="p">(</span><span class="n">p</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                            </span><span class="n">p</span><span class="p">.</span><span class="n">BrojSale</span><span class="p">,</span>
+<span class="w">                            </span><span class="n">p</span><span class="p">.</span><span class="n">DatumVremePocetka</span>
+<span class="w">                            </span><span class="p">})</span>
+<span class="w">                    </span><span class="p">.</span><span class="n">Where</span><span class="p">(</span><span class="n">g</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">g</span><span class="p">.</span><span class="n">Count</span><span class="p">()</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
+
 <span class="w">    </span><span class="k">foreach</span><span class="w"> </span><span class="p">(</span><span class="kt">var</span><span class="w"> </span><span class="n">d</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">duplikati</span><span class="p">)</span>
-<span class="w">        </span><span class="n">greske</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="s">$"Sala {d.Key.BrojSale} u {d.Key.DatumVremePocetka} se ponavlja u zahtevu"</span><span class="p">);</span>
-
-<span class="w">    </span><span class="c1">// 4) zauzeto u bazi</span>
-<span class="w">    </span><span class="k">foreach</span><span class="w"> </span><span class="p">(</span><span class="kt">var</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">projekcije</span><span class="p">)</span>
-<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">context</span><span class="p">.</span><span class="n">Projekcije</span><span class="p">.</span><span class="n">Any</span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">x</span><span class="p">.</span><span class="n">BrojSale</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">p</span><span class="p">.</span><span class="n">BrojSale</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">x</span><span class="p">.</span><span class="n">DatumVremePocetka</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">p</span><span class="p">.</span><span class="n">DatumVremePocetka</span><span class="p">))</span>
-<span class="w">            </span><span class="n">greske</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="s">$"Sala {p.BrojSale} je zauzeta u terminu {p.DatumVremePocetka}"</span><span class="p">);</span>
-
-<span class="w">    </span><span class="c1">// 5) sve-ili-nista</span>
-<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">greske</span><span class="p">.</span><span class="n">Count</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">errors</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="s">$"Projekcija u sali {d.Key.BrojSale} u vreme {d.Key.DatumVremePocetka} se ponavlja"</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">errors</span><span class="p">.</span><span class="n">Count</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
 <span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">Results</span><span class="p">.</span><span class="n">Problem</span><span class="p">(</span>
-<span class="w">            </span><span class="n">title</span><span class="p">:</span><span class="w"> </span><span class="s">"Neispravne projekcije"</span><span class="p">,</span>
-<span class="w">            </span><span class="n">detail</span><span class="p">:</span><span class="w"> </span><span class="kt">string</span><span class="p">.</span><span class="n">Join</span><span class="p">(</span><span class="s">"; "</span><span class="p">,</span><span class="w"> </span><span class="n">greske</span><span class="p">),</span>
-<span class="w">            </span><span class="n">statusCode</span><span class="p">:</span><span class="w"> </span><span class="mi">400</span><span class="p">);</span><span class="w">                                          </span><span class="c1">// ProblemDetails, 400</span>
+<span class="w">            </span><span class="n">title</span><span class="p">:</span><span class="w"> </span><span class="s">"Projekcije nisu validne!"</span><span class="p">,</span>
+<span class="w">            </span><span class="n">detail</span><span class="p">:</span><span class="w"> </span><span class="kt">string</span><span class="p">.</span><span class="n">Join</span><span class="p">(</span><span class="s">"; "</span><span class="p">,</span><span class="w"> </span><span class="n">errors</span><span class="p">),</span>
+<span class="w">            </span><span class="n">statusCode</span><span class="p">:</span><span class="w"> </span><span class="mi">400</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="n">errors</span><span class="p">.</span><span class="n">Clear</span><span class="p">();</span>
 
-<span class="w">    </span><span class="n">context</span><span class="p">.</span><span class="n">Projekcije</span><span class="p">.</span><span class="n">AddRange</span><span class="p">(</span><span class="n">projekcije</span><span class="p">);</span>
-<span class="w">    </span><span class="n">context</span><span class="p">.</span><span class="n">SaveChanges</span><span class="p">();</span><span class="w">                                             </span><span class="c1">// jedna transakcija</span>
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">Results</span><span class="p">.</span><span class="n">Created</span><span class="p">(</span><span class="s">$"/filmovi/{film.Id}"</span><span class="p">,</span><span class="w"> </span><span class="k">null</span><span class="p">);</span><span class="w">               </span><span class="c1">// 201</span>
+<span class="w">    </span><span class="c1">// FAZA 2 – zauzet termin u bazi (bilo koji film)</span>
+<span class="w">    </span><span class="k">foreach</span><span class="w"> </span><span class="p">(</span><span class="kt">var</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">projekcije</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">context</span><span class="p">.</span><span class="n">Projekcije</span><span class="p">.</span><span class="n">Any</span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">x</span><span class="p">.</span><span class="n">BrojSale</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">p</span><span class="p">.</span><span class="n">BrojSale</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">x</span><span class="p">.</span><span class="n">DatumVremePocetka</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">p</span><span class="p">.</span><span class="n">DatumVremePocetka</span><span class="p">))</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="n">errors</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="s">$"U terminu {p.DatumVremePocetka} sala {p.BrojSale} je zauzeta"</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">errors</span><span class="p">.</span><span class="n">Count</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">Results</span><span class="p">.</span><span class="n">BadRequest</span><span class="p">(</span><span class="kt">string</span><span class="p">.</span><span class="n">Join</span><span class="p">(</span><span class="s">"; "</span><span class="p">,</span><span class="w"> </span><span class="n">errors</span><span class="p">));</span>
+
+<span class="w">    </span><span class="c1">// UPIS – sve ili nista (jedan SaveChanges = jedna transakcija)</span>
+<span class="w">    </span><span class="k">try</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">context</span><span class="p">.</span><span class="n">Projekcije</span><span class="p">.</span><span class="n">AddRange</span><span class="p">(</span><span class="n">projekcije</span><span class="p">);</span>
+<span class="w">        </span><span class="n">context</span><span class="p">.</span><span class="n">SaveChanges</span><span class="p">();</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">Results</span><span class="p">.</span><span class="n">Created</span><span class="p">();</span><span class="w">                                       </span><span class="c1">// 201</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">Exception</span><span class="w"> </span><span class="n">ex</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">Results</span><span class="p">.</span><span class="n">Problem</span><span class="p">(</span>
+<span class="w">            </span><span class="n">title</span><span class="p">:</span><span class="w"> </span><span class="s">"Doslo je do greske sa strane servera!"</span><span class="p">,</span>
+<span class="w">            </span><span class="n">detail</span><span class="p">:</span><span class="w"> </span><span class="n">ex</span><span class="p">.</span><span class="n">Message</span><span class="p">,</span>
+<span class="w">            </span><span class="n">statusCode</span><span class="p">:</span><span class="w"> </span><span class="mi">500</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
 <span class="p">});</span>
 </code></pre></div>
 
 <p>Napomene:</p>
 <ul>
-<li>Uvek ide <code>Results.Problem(... statusCode: 400)</code>, a <strong>ne</strong> <code>Results.BadRequest("string")</code> – zadatak eksplicitno trazi <em>Problem Details sa naslovom i opisom</em>. (U <code>Bioskop-Dopunjeno</code> provera zauzetosti vraca <code>BadRequest(string)</code> – nije PD.)</li>
-<li>Ako se klijent zeznuo i posalje <code>brojProjekcije</code> – EF ce pokusati da ga upise. Ne diraj, u testu ga ne saljes.</li>
-<li>Moze se i uvesti <code>try/catch</code> oko <code>SaveChanges</code> → 500 Problem (vidi <code>Bioskop-Dopunjeno</code>).</li>
+<li><strong><code>try/catch</code> oko <code>SaveChanges</code> + <code>Results.Problem(... statusCode: 500)</code></strong> se ne izostavlja – to je deo uradjenog resenja iz Vezbe 06.</li>
+<li><strong><code>errors.Clear()</code> izmedju faza</strong> je namerno: faza 2 pocinje sa praznom listom, pa <code>Count &gt; 0</code> posle nje znaci samo greske iz baze.</li>
+<li>Prva faza vraca <code>Results.Problem(...)</code>. Obavezno napisi <code>statusCode: 400</code>, jer <code>Results.Problem(detail: ...)</code> bez status koda vraca <strong>500</strong>.</li>
+<li>Zadatak trazi da je i zauzet termin u formi <strong>Problem Details</strong> (naslov + opis). Ako ti to eksplicitno pise, zameni <code>Results.BadRequest(string.Join("; ", errors))</code> sa <code>Results.Problem(title: "Termin je zauzet!", detail: string.Join("; ", errors), statusCode: 400)</code> – 400 je i dalje 400, samo je PD telo korektno.</li>
+<li>Ako se klijent zeznuo i posalje <code>brojProjekcije</code> – EF ce pokusati da ga upise. U testu ga ne saljes.</li>
 </ul>
 <hr />
 <h3 id="45-put-filmoviid-izmena-update-filma-i-delete-ako-traze">4.5 PUT /filmovi/{id} – izmena (update) filma, i DELETE (ako traze)</h3>
@@ -908,34 +998,34 @@ Redosled: stavi ga rano (pre <code>MapGet/MapPost</code>).</p>
 <div class="highlight"><pre><code><span class="nv">@host </span><span class="o">=</span><span class="s"> https://localhost:7007</span>
 
 <span class="c1">### 1. svi filmovi</span>
-<span class="k">GET</span> <span class="nn"></span><span class="nv">{{host}}</span><span class="nn">/filmovi</span>
+<span class="k">GET</span> <span class="nv">{{host}}</span><span class="nn">/filmovi</span>
 
 <span class="c1">### 1b. pretraga po nazivu</span>
-<span class="k">GET</span> <span class="nn"></span><span class="nv">{{host}}</span><span class="nn">/filmovi?naziv=f</span>
+<span class="k">GET</span> <span class="nv">{{host}}</span><span class="nn">/filmovi?naziv=f</span>
 
 <span class="c1">### 1c. pretraga po vise kriterijuma</span>
-<span class="k">GET</span> <span class="nn"></span><span class="nv">{{host}}</span><span class="nn">/filmovi?zanr=horor&amp;naziv=f1</span>
+<span class="k">GET</span> <span class="nv">{{host}}</span><span class="nn">/filmovi?zanr=horor&amp;naziv=f1</span>
 
 <span class="c1">### 2. novi film – OK (201)</span>
-<span class="k">POST</span> <span class="nn"></span><span class="nv">{{host}}</span><span class="nn">/filmovi</span>
+<span class="k">POST</span> <span class="nv">{{host}}</span><span class="nn">/filmovi</span>
 <span class="na">Content-Type</span>:<span class="s"> application/json</span>
 
 <span class="p">{</span><span class="w"> </span><span class="nt">"naziv"</span><span class="p">:</span><span class="w"> </span><span class="s2">"F3"</span><span class="p">,</span><span class="w"> </span><span class="nt">"zanr"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Drama"</span><span class="p">,</span><span class="w"> </span><span class="nt">"godinaSnimanja"</span><span class="p">:</span><span class="w"> </span><span class="mi">2024</span><span class="p">,</span><span class="w"> </span><span class="nt">"trajanjeMin"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="w"> </span><span class="p">}</span>
 
 <span class="c1">### 2b. isti film opet – 400</span>
-<span class="k">POST</span> <span class="nn"></span><span class="nv">{{host}}</span><span class="nn">/filmovi</span>
+<span class="k">POST</span> <span class="nv">{{host}}</span><span class="nn">/filmovi</span>
 <span class="na">Content-Type</span>:<span class="s"> application/json</span>
 
 <span class="p">{</span><span class="w"> </span><span class="nt">"naziv"</span><span class="p">:</span><span class="w"> </span><span class="s2">"F3"</span><span class="p">,</span><span class="w"> </span><span class="nt">"zanr"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Drama"</span><span class="p">,</span><span class="w"> </span><span class="nt">"godinaSnimanja"</span><span class="p">:</span><span class="w"> </span><span class="mi">2024</span><span class="p">,</span><span class="w"> </span><span class="nt">"trajanjeMin"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="w"> </span><span class="p">}</span>
 
 <span class="c1">### 3. film sa projekcijama – 200</span>
-<span class="k">GET</span> <span class="nn"></span><span class="nv">{{host}}</span><span class="nn">/filmovi/1</span>
+<span class="k">GET</span> <span class="nv">{{host}}</span><span class="nn">/filmovi/1</span>
 
 <span class="c1">### 3b. nepostojeci film – 404</span>
-<span class="k">GET</span> <span class="nn"></span><span class="nv">{{host}}</span><span class="nn">/filmovi/999</span>
+<span class="k">GET</span> <span class="nv">{{host}}</span><span class="nn">/filmovi/999</span>
 
 <span class="c1">### 4. uspesan unos projekcija – 201 (datumi MORAJU biti u buducnosti!)</span>
-<span class="k">POST</span> <span class="nn"></span><span class="nv">{{host}}</span><span class="nn">/filmovi/2/projekcije</span>
+<span class="k">POST</span> <span class="nv">{{host}}</span><span class="nn">/filmovi/2/projekcije</span>
 <span class="na">Content-Type</span>:<span class="s"> application/json</span>
 
 <span class="p">[</span>
@@ -944,31 +1034,31 @@ Redosled: stavi ga rano (pre <code>MapGet/MapPost</code>).</p>
 <span class="p">]</span>
 
 <span class="c1">### 4b. zauzet termin (isti zahtev ponovo) – 400</span>
-<span class="k">POST</span> <span class="nn"></span><span class="nv">{{host}}</span><span class="nn">/filmovi/2/projekcije</span>
+<span class="k">POST</span> <span class="nv">{{host}}</span><span class="nn">/filmovi/2/projekcije</span>
 <span class="na">Content-Type</span>:<span class="s"> application/json</span>
 
 <span class="p">[</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">"brojSale"</span><span class="p">:</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w"> </span><span class="nt">"cenaKarte"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w"> </span><span class="nt">"datumVremePocetka"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2027-11-15T21:00:00"</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">]</span>
 
 <span class="c1">### 4c. nepostojeci film – 404</span>
-<span class="k">POST</span> <span class="nn"></span><span class="nv">{{host}}</span><span class="nn">/filmovi/999/projekcije</span>
+<span class="k">POST</span> <span class="nv">{{host}}</span><span class="nn">/filmovi/999/projekcije</span>
 <span class="na">Content-Type</span>:<span class="s"> application/json</span>
 
 <span class="p">[</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">"brojSale"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nt">"cenaKarte"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w"> </span><span class="nt">"datumVremePocetka"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2027-12-01T20:00:00"</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">]</span>
 
 <span class="c1">### 5. izmena filma – 204</span>
-<span class="k">PUT</span> <span class="nn"></span><span class="nv">{{host}}</span><span class="nn">/filmovi/2</span>
+<span class="k">PUT</span> <span class="nv">{{host}}</span><span class="nn">/filmovi/2</span>
 <span class="na">Content-Type</span>:<span class="s"> application/json</span>
 
 <span class="p">{</span><span class="w"> </span><span class="nt">"naziv"</span><span class="p">:</span><span class="w"> </span><span class="s2">"F2 izmenjen"</span><span class="p">,</span><span class="w"> </span><span class="nt">"zanr"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Triler"</span><span class="p">,</span><span class="w"> </span><span class="nt">"godinaSnimanja"</span><span class="p">:</span><span class="w"> </span><span class="mi">2025</span><span class="p">,</span><span class="w"> </span><span class="nt">"trajanjeMin"</span><span class="p">:</span><span class="w"> </span><span class="mi">120</span><span class="w"> </span><span class="p">}</span>
 
 <span class="c1">### 5b. izmena nepostojeceg – 404</span>
-<span class="k">PUT</span> <span class="nn"></span><span class="nv">{{host}}</span><span class="nn">/filmovi/999</span>
+<span class="k">PUT</span> <span class="nv">{{host}}</span><span class="nn">/filmovi/999</span>
 <span class="na">Content-Type</span>:<span class="s"> application/json</span>
 
 <span class="p">{</span><span class="w"> </span><span class="nt">"naziv"</span><span class="p">:</span><span class="w"> </span><span class="s2">"X"</span><span class="p">,</span><span class="w"> </span><span class="nt">"zanr"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Y"</span><span class="p">,</span><span class="w"> </span><span class="nt">"godinaSnimanja"</span><span class="p">:</span><span class="w"> </span><span class="mi">2025</span><span class="p">,</span><span class="w"> </span><span class="nt">"trajanjeMin"</span><span class="p">:</span><span class="w"> </span><span class="mi">90</span><span class="w"> </span><span class="p">}</span>
 
 <span class="c1">### 5c. izmena u vec postojeci naziv+godinu – 400</span>
-<span class="k">PUT</span> <span class="nn"></span><span class="nv">{{host}}</span><span class="nn">/filmovi/2</span>
+<span class="k">PUT</span> <span class="nv">{{host}}</span><span class="nn">/filmovi/2</span>
 <span class="na">Content-Type</span>:<span class="s"> application/json</span>
 
 <span class="p">{</span><span class="w"> </span><span class="nt">"naziv"</span><span class="p">:</span><span class="w"> </span><span class="s2">"F1"</span><span class="p">,</span><span class="w"> </span><span class="nt">"zanr"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Horor"</span><span class="p">,</span><span class="w"> </span><span class="nt">"godinaSnimanja"</span><span class="p">:</span><span class="w"> </span><span class="mi">2025</span><span class="p">,</span><span class="w"> </span><span class="nt">"trajanjeMin"</span><span class="p">:</span><span class="w"> </span><span class="mi">90</span><span class="w"> </span><span class="p">}</span></code></pre></div>
@@ -1075,29 +1165,61 @@ Redosled: stavi ga rano (pre <code>MapGet/MapPost</code>).</p>
 <span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">film</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">context</span><span class="p">.</span><span class="n">Filmovi</span><span class="p">.</span><span class="n">Find</span><span class="p">(</span><span class="n">id</span><span class="p">);</span>
 <span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">film</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="k">null</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">NotFound</span><span class="p">();</span>
 
-<span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">greske</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="kt">string</span><span class="o">&gt;</span><span class="p">();</span>
+<span class="w">        </span><span class="n">List</span><span class="o">&lt;</span><span class="kt">string</span><span class="o">&gt;</span><span class="w"> </span><span class="n">errors</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[];</span>
+
+<span class="w">        </span><span class="c1">// FAZA 1 – vreme i cena</span>
 <span class="w">        </span><span class="k">foreach</span><span class="w"> </span><span class="p">(</span><span class="kt">var</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">projekcije</span><span class="p">)</span>
 <span class="w">        </span><span class="p">{</span>
 <span class="w">            </span><span class="n">p</span><span class="p">.</span><span class="n">FilmId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">film</span><span class="p">.</span><span class="n">Id</span><span class="p">;</span>
-<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">p</span><span class="p">.</span><span class="n">DatumVremePocetka</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">DateTime</span><span class="p">.</span><span class="n">Now</span><span class="p">)</span>
-<span class="w">                </span><span class="n">greske</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="s">$"Projekcija u sali {p.BrojSale} ({p.DatumVremePocetka}) nije u buducnosti"</span><span class="p">);</span>
-<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">p</span><span class="p">.</span><span class="n">CenaKarte</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
-<span class="w">                </span><span class="n">greske</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="s">$"Projekcija u sali {p.BrojSale} ({p.DatumVremePocetka}) mora imati cenu vecu od 0"</span><span class="p">);</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">p</span><span class="p">.</span><span class="n">DatumVremePocetka</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">DateTime</span><span class="p">.</span><span class="n">Now</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">p</span><span class="p">.</span><span class="n">CenaKarte</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">                </span><span class="n">errors</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="s">$"Projekcija: mora biti u buducnosti i mora imati cenu vecu od 0"</span><span class="p">);</span>
+<span class="w">            </span><span class="p">}</span>
 <span class="w">        </span><span class="p">}</span>
 
-<span class="w">        </span><span class="k">foreach</span><span class="w"> </span><span class="p">(</span><span class="kt">var</span><span class="w"> </span><span class="n">d</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">projekcije</span><span class="p">.</span><span class="n">GroupBy</span><span class="p">(</span><span class="n">p</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">p</span><span class="p">.</span><span class="n">BrojSale</span><span class="p">,</span><span class="w"> </span><span class="n">p</span><span class="p">.</span><span class="n">DatumVremePocetka</span><span class="w"> </span><span class="p">}).</span><span class="n">Where</span><span class="p">(</span><span class="n">g</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">g</span><span class="p">.</span><span class="n">Count</span><span class="p">()</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">1</span><span class="p">))</span>
-<span class="w">            </span><span class="n">greske</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="s">$"Sala {d.Key.BrojSale} u {d.Key.DatumVremePocetka} se ponavlja u zahtevu"</span><span class="p">);</span>
+<span class="w">        </span><span class="c1">// FAZA 1 – duplikati unutar zahteva</span>
+<span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">duplikati</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">projekcije</span>
+<span class="w">                        </span><span class="p">.</span><span class="n">GroupBy</span><span class="p">(</span><span class="n">p</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">p</span><span class="p">.</span><span class="n">BrojSale</span><span class="p">,</span><span class="w"> </span><span class="n">p</span><span class="p">.</span><span class="n">DatumVremePocetka</span><span class="w"> </span><span class="p">})</span>
+<span class="w">                        </span><span class="p">.</span><span class="n">Where</span><span class="p">(</span><span class="n">g</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">g</span><span class="p">.</span><span class="n">Count</span><span class="p">()</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
 
+<span class="w">        </span><span class="k">foreach</span><span class="w"> </span><span class="p">(</span><span class="kt">var</span><span class="w"> </span><span class="n">d</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">duplikati</span><span class="p">)</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="n">errors</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="s">$"Projekcija u sali {d.Key.BrojSale} u vreme {d.Key.DatumVremePocetka} se ponavlja"</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">errors</span><span class="p">.</span><span class="n">Count</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="nf">Problem</span><span class="p">(</span>
+<span class="w">                </span><span class="n">title</span><span class="p">:</span><span class="w"> </span><span class="s">"Projekcije nisu validne!"</span><span class="p">,</span>
+<span class="w">                </span><span class="n">detail</span><span class="p">:</span><span class="w"> </span><span class="kt">string</span><span class="p">.</span><span class="n">Join</span><span class="p">(</span><span class="s">"; "</span><span class="p">,</span><span class="w"> </span><span class="n">errors</span><span class="p">),</span>
+<span class="w">                </span><span class="n">statusCode</span><span class="p">:</span><span class="w"> </span><span class="mi">400</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="n">errors</span><span class="p">.</span><span class="n">Clear</span><span class="p">();</span>
+
+<span class="w">        </span><span class="c1">// FAZA 2 – zauzet termin u bazi</span>
 <span class="w">        </span><span class="k">foreach</span><span class="w"> </span><span class="p">(</span><span class="kt">var</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">projekcije</span><span class="p">)</span>
+<span class="w">        </span><span class="p">{</span>
 <span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">context</span><span class="p">.</span><span class="n">Projekcije</span><span class="p">.</span><span class="n">Any</span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">x</span><span class="p">.</span><span class="n">BrojSale</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">p</span><span class="p">.</span><span class="n">BrojSale</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">x</span><span class="p">.</span><span class="n">DatumVremePocetka</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">p</span><span class="p">.</span><span class="n">DatumVremePocetka</span><span class="p">))</span>
-<span class="w">                </span><span class="n">greske</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="s">$"Sala {p.BrojSale} je zauzeta u terminu {p.DatumVremePocetka}"</span><span class="p">);</span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">                </span><span class="n">errors</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="s">$"U terminu {p.DatumVremePocetka} sala {p.BrojSale} je zauzeta"</span><span class="p">);</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">errors</span><span class="p">.</span><span class="n">Count</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="nf">BadRequest</span><span class="p">(</span><span class="kt">string</span><span class="p">.</span><span class="n">Join</span><span class="p">(</span><span class="s">"; "</span><span class="p">,</span><span class="w"> </span><span class="n">errors</span><span class="p">));</span>
 
-<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">greske</span><span class="p">.</span><span class="n">Count</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
-<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="nf">Problem</span><span class="p">(</span><span class="n">title</span><span class="p">:</span><span class="w"> </span><span class="s">"Neispravne projekcije"</span><span class="p">,</span><span class="w"> </span><span class="n">detail</span><span class="p">:</span><span class="w"> </span><span class="kt">string</span><span class="p">.</span><span class="n">Join</span><span class="p">(</span><span class="s">"; "</span><span class="p">,</span><span class="w"> </span><span class="n">greske</span><span class="p">),</span><span class="w"> </span><span class="n">statusCode</span><span class="p">:</span><span class="w"> </span><span class="mi">400</span><span class="p">);</span>
-
-<span class="w">        </span><span class="n">context</span><span class="p">.</span><span class="n">Projekcije</span><span class="p">.</span><span class="n">AddRange</span><span class="p">(</span><span class="n">projekcije</span><span class="p">);</span>
-<span class="w">        </span><span class="n">context</span><span class="p">.</span><span class="n">SaveChanges</span><span class="p">();</span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nf">Created</span><span class="p">(</span><span class="s">$"api/filmovi/{film.Id}"</span><span class="p">,</span><span class="w"> </span><span class="k">null</span><span class="p">);</span>
+<span class="w">        </span><span class="c1">// UPIS</span>
+<span class="w">        </span><span class="k">try</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="n">context</span><span class="p">.</span><span class="n">Projekcije</span><span class="p">.</span><span class="n">AddRange</span><span class="p">(</span><span class="n">projekcije</span><span class="p">);</span>
+<span class="w">            </span><span class="n">context</span><span class="p">.</span><span class="n">SaveChanges</span><span class="p">();</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="nf">Created</span><span class="p">(</span><span class="s">$"api/filmovi/{film.Id}"</span><span class="p">,</span><span class="w"> </span><span class="k">null</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">Exception</span><span class="w"> </span><span class="n">ex</span><span class="p">)</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="nf">Problem</span><span class="p">(</span>
+<span class="w">                </span><span class="n">title</span><span class="p">:</span><span class="w"> </span><span class="s">"Doslo je do greske sa strane servera!"</span><span class="p">,</span>
+<span class="w">                </span><span class="n">detail</span><span class="p">:</span><span class="w"> </span><span class="n">ex</span><span class="p">.</span><span class="n">Message</span><span class="p">,</span>
+<span class="w">                </span><span class="n">statusCode</span><span class="p">:</span><span class="w"> </span><span class="mi">500</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
@@ -1367,7 +1489,6 @@ Uradi ceo zadatak na vreme od 90 min, bez kopiranja. Cilj: 70 min.</p>
 </article></main>
 </div>
 <script>
-// tema + tamni highlight
 const root = document.documentElement, hl = document.getElementById('hl-dark');
 const mq = matchMedia('(prefers-color-scheme: dark)');
 let pref = null; try { pref = localStorage.getItem('theme'); } catch(e) {}
@@ -1383,7 +1504,6 @@ document.getElementById('theme').onclick = () => {
   try { localStorage.setItem('theme', pref); } catch(e) {}
   apply();
 };
-// dugmad za kopiranje
 document.querySelectorAll('.highlight').forEach(b => {
   const btn = document.createElement('button'); btn.className = 'copy'; btn.textContent = 'Kopiraj';
   btn.onclick = async () => {
@@ -1393,7 +1513,6 @@ document.querySelectorAll('.highlight').forEach(b => {
   };
   b.appendChild(btn);
 });
-// aktivna stavka u sadržaju
 const links = [...document.querySelectorAll('aside nav a')];
 const map = new Map(links.map(a => [a.getAttribute('href').slice(1), a]));
 const io = new IntersectionObserver(es => es.forEach(e => {

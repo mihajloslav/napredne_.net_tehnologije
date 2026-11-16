@@ -7,6 +7,65 @@ Zasnovano na: `Vezbe 06/Prvi kolokvijum - priprema (veza 1-N).doc` (zadatak), `V
 
 ---
 
+## Tekst zadatka (original iz Word dokumenta)
+
+**Напредне .NET технологије**
+**Припрема за први колоквијум – 90 мин.**
+
+> **Напомена:** Овај задатак по обиму и тежини одговара задатку који можете очекивати на првом колоквијуму: покрива јак објекат и везу један-више, ради се 90 минута и носи 50 поена. Број поена за сваки захтев наведен је у загради.
+
+Потребно је реализовати апликацију за биоскоп. Систем треба да омогући чување података о филмовима и њиховим пројекцијама у бази података (EF Core, Code First). Један филм има више пројекција, а пројекција припада тачно једном филму. Решење организовати у више пројеката, тако да домен, приступ подацима и веб сервис буду раздвојени, а контекст базе регистровати у DI контејнеру **(3п.)**.
+
+**Модел и миграције (7п.)**
+
+За филм чувати:
+
+- назив,
+- жанр,
+- годину снимања,
+- трајање у минутима.
+
+Креирати прву миграцију под називом **Init (3п.)**. Након тога додати пројекције и везу један-више између филма и пројекција и креирати нову миграцију **(4п.)**.
+
+За пројекцију чувати:
+
+- датум и време почетка,
+- број сале,
+- цену карте,
+- филм који се приказује.
+
+**Функционалности (32п.)**
+
+Потребно је реализовати веб сервис који пружа следеће функционалности (свака функционалност је засебна приступна тачка):
+
+1. **Приказ и претрага филмова** – омогућити приказ свих филмова, као и претрагу по називу и жанру. Претрага треба да подржи да буде задат један, више или ниједан критеријум **(5п.)**. За сваки филм вратити назив, жанр, годину снимања и укупан број пројекција **(3п.)**.
+2. **Додавање новог филма** – омогућити унос новог филма са свим подацима:
+    - ако филм са истим називом и годином снимања већ постоји, вратити 400 Bad Request **(3п.)**,
+    - након успешног додавања вратити 201 Created **(2п.)**.
+3. **Приказ филма са пројекцијама** – на основу идентификатора филма вратити податке о филму и списак његових пројекција (датум и време почетка, број сале и цена карте), уређен по времену почетка **(4п.)**:
+    - ако филм са задатим идентификатором не постоји, вратити 404 Not Found **(1п.)**.
+4. **Унос пројекција филма** – омогућити унос више пројекција једног филма одједном:
+    - ако филм не постоји, вратити 404 Not Found **(2п.)**,
+    - време почетка сваке пројекције мора бити у будућности, а цена карте већа од нуле **(3п.)**,
+    - иста сала у исто време не сме да се понови у захтеву **(2п.)**,
+    - у истој сали у исто време не сме већ постојати пројекција било ког филма; у супротном вратити 400 Bad Request у облику Problem Details, са насловом и описом из ког се виде заузети термини **(4п.)**,
+    - уколико било која пројекција из захтева није исправна, не уписује се ниједна; након успешног уноса вратити 201 Created **(3п.)**.
+
+**Тестирање (5п.)**
+
+У .http фајлу веб сервиса написати захтеве којима се тестира свака приступна тачка, и успешни захтеви и они који враћају грешку. Потребно је покрити најмање:
+
+- приказ свих филмова и претрагу са једним и са више критеријума,
+- додавање новог филма и покушај додавања филма који већ постоји,
+- приказ филма са пројекцијама и приказ непостојећег филма,
+- успешан унос пројекција, унос са заузетим термином и унос за непостојећи филм.
+
+**Додатни захтев (3п.)**
+
+За сваки пристигли HTTP захтев потребно је на конзоли исписати HTTP методу и путању захтева, као и статусни код одговора.
+
+---
+
 ## 0. Mapa zadatka (50 poena) – sta se uvek trazi
 
 | # | Zahtev | Poeni | Sablon |
@@ -53,11 +112,17 @@ Desni klik na projekat → `Add → Project Reference...` → cekiraj:
 
 **5) NuGet paketi**
 Desni klik na projekat → `Manage NuGet Packages...` → tab **Browse** → trazi i `Install`:
-| Projekat | Paket |
-|---|---|
-| **Infrastructure** | `Microsoft.EntityFrameworkCore.SqlServer` |
-| **Infrastructure** | `Microsoft.EntityFrameworkCore.Tools` |
-| **Web projekat** | `Microsoft.EntityFrameworkCore.Design` |
+| Projekat | Paket | Za sta sluzi |
+|---|---|---|
+| **Infrastructure** | `Microsoft.EntityFrameworkCore.SqlServer` | EF Core + **provajder za SQL Server**. Daje `DbContext`, `DbSet`, LINQ upite i `UseSqlServer(...)` u `OnConfiguring`. Bez njega nema komunikacije sa bazom. |
+| **Infrastructure** | `Microsoft.EntityFrameworkCore.Tools` | Omogucava komande u **Package Manager Console**: `Add-Migration`, `Update-Database`, `Remove-Migration`... |
+| **Web projekat** | `Microsoft.EntityFrameworkCore.Design` | Projektni-vreme alati koje EF koristi da **napravi instancu konteksta i generise kod migracija**. Treba u startup projektu, jer EF migracije pokrece kroz njega. |
+
+**Sta je "Web projekat"?** To je ono sto pokreces (startup projekat) i sto prima HTTP zahteve – tj. **onaj projekat koji ti je zadat kao API**:
+- ako traze **Minimal API** → web projekat je `MinimalApi` (sablon *ASP.NET Core Empty* / Web API bez kontrolera),
+- ako traze **kontrolere** → web projekat je `RestWebApi` (Web API sa "Use controllers").
+
+Dakle **MinimalApi i RestWebApi nisu dva projekta koja oba pravis** – biras **jedan** od njih (zavisi sta kolokvijum trazi) i on je tvoj "Web projekat". Paket `Design` ide u taj jedan projekat.
 
 Verzija: ista **10.x** za sve EF pakete (npr. 10.0.x – kao u `Bioskop-Dopunjeno`). Ne mesaj verzije.
 
@@ -395,60 +460,86 @@ app.MapGet("/filmovi/{id}", (int id, BioskopContext context) =>
 > U `Bioskop-Dopunjeno` ovde fali `OrderBy` – na kolokvijumu to je 4p, nemoj zaboraviti.
 
 ### 4.4 POST /filmovi/{id}/projekcije – unos vise projekcija (14p) ⭐ NAJVAZNIJE
-Telo zahteva je **lista** (`List<Projekcija>`). Redosled provera:
+Telo zahteva je **lista** (`List<Projekcija>`). Resenje je u **dve faze** (kao u `Bioskop-Dopunjeno`):
 
 1. film ne postoji → **404**
-2. za svaku: vreme u buducnosti **i** cena > 0
-3. duplikat (sala+vreme) **unutar zahteva**
-4. zauzet termin **u bazi** (bilo koji film) → **400 ProblemDetails** sa naslovom i opisom zauzetih termina
-5. ako ijedna greska → **nista se ne upisuje**; inace `AddRange` + jedan `SaveChanges` → **201**
+2. **Faza 1 (provere samo nad zahtevom):** za svaku projekciju vreme u buducnosti **i** cena > 0, pa duplikat (sala + vreme) **unutar zahteva** → ako ima gresaka, `Results.Problem(...)` 400
+3. `errors.Clear()` – lista gresaka se prazni pre faze 2
+4. **Faza 2 (provera u bazi):** zauzet termin (bilo koji film) → `Results.BadRequest(...)` sa opisom zauzetih termina
+5. ako ijedna greska → **nista se ne upisuje**; inace `AddRange` + jedan `SaveChanges` u `try/catch` → **201**, a ako pukne → **500 Problem**
 
 ```csharp
 app.MapPost("/filmovi/{id}/projekcije", (int id, List<Projekcija> projekcije, BioskopContext context) =>
 {
     var film = context.Filmovi.Find(id);
-    if (film is null) return Results.NotFound();                       // 1
+    if (film is null) return Results.NotFound();                        // 404
 
-    var greske = new List<string>();
+    List<string> errors = [];
 
-    // 2) vreme i cena
+    // FAZA 1 – vreme i cena
     foreach (var p in projekcije)
     {
-        p.FilmId = film.Id;                                            // povezi sa filmom iz rute
-        if (p.DatumVremePocetka <= DateTime.Now)
-            greske.Add($"Projekcija u sali {p.BrojSale} ({p.DatumVremePocetka}) nije u buducnosti");
-        if (p.CenaKarte <= 0)
-            greske.Add($"Projekcija u sali {p.BrojSale} ({p.DatumVremePocetka}) mora imati cenu vecu od 0");
+        p.FilmId = film.Id;                                             // povezi sa filmom iz rute
+        if (p.DatumVremePocetka <= DateTime.Now || p.CenaKarte <= 0)
+        {
+            errors.Add($"Projekcija: mora biti u buducnosti i mora imati cenu vecu od 0");
+        }
     }
 
-    // 3) duplikati u zahtevu
+    // FAZA 1 – duplikati unutar zahteva
     var duplikati = projekcije
-        .GroupBy(p => new { p.BrojSale, p.DatumVremePocetka })
-        .Where(g => g.Count() > 1);
+                    .GroupBy(p => new {
+                            p.BrojSale,
+                            p.DatumVremePocetka
+                            })
+                    .Where(g => g.Count() > 1);
+
     foreach (var d in duplikati)
-        greske.Add($"Sala {d.Key.BrojSale} u {d.Key.DatumVremePocetka} se ponavlja u zahtevu");
-
-    // 4) zauzeto u bazi
-    foreach (var p in projekcije)
-        if (context.Projekcije.Any(x => x.BrojSale == p.BrojSale && x.DatumVremePocetka == p.DatumVremePocetka))
-            greske.Add($"Sala {p.BrojSale} je zauzeta u terminu {p.DatumVremePocetka}");
-
-    // 5) sve-ili-nista
-    if (greske.Count > 0)
+    {
+        errors.Add($"Projekcija u sali {d.Key.BrojSale} u vreme {d.Key.DatumVremePocetka} se ponavlja");
+    }
+    if (errors.Count > 0)
+    {
         return Results.Problem(
-            title: "Neispravne projekcije",
-            detail: string.Join("; ", greske),
-            statusCode: 400);                                          // ProblemDetails, 400
+            title: "Projekcije nisu validne!",
+            detail: string.Join("; ", errors),
+            statusCode: 400);
+    }
+    errors.Clear();
 
-    context.Projekcije.AddRange(projekcije);
-    context.SaveChanges();                                             // jedna transakcija
-    return Results.Created($"/filmovi/{film.Id}", null);               // 201
+    // FAZA 2 – zauzet termin u bazi (bilo koji film)
+    foreach (var p in projekcije)
+    {
+        if (context.Projekcije.Any(x => x.BrojSale == p.BrojSale && x.DatumVremePocetka == p.DatumVremePocetka))
+        {
+            errors.Add($"U terminu {p.DatumVremePocetka} sala {p.BrojSale} je zauzeta");
+        }
+    }
+    if (errors.Count > 0)
+        return Results.BadRequest(string.Join("; ", errors));
+
+    // UPIS – sve ili nista (jedan SaveChanges = jedna transakcija)
+    try
+    {
+        context.Projekcije.AddRange(projekcije);
+        context.SaveChanges();
+        return Results.Created();                                       // 201
+    }
+    catch (Exception ex)
+    {
+        return Results.Problem(
+            title: "Doslo je do greske sa strane servera!",
+            detail: ex.Message,
+            statusCode: 500);
+    }
 });
 ```
 Napomene:
-- Uvek ide `Results.Problem(... statusCode: 400)`, a **ne** `Results.BadRequest("string")` – zadatak eksplicitno trazi *Problem Details sa naslovom i opisom*. (U `Bioskop-Dopunjeno` provera zauzetosti vraca `BadRequest(string)` – nije PD.)
-- Ako se klijent zeznuo i posalje `brojProjekcije` – EF ce pokusati da ga upise. Ne diraj, u testu ga ne saljes.
-- Moze se i uvesti `try/catch` oko `SaveChanges` → 500 Problem (vidi `Bioskop-Dopunjeno`).
+- **`try/catch` oko `SaveChanges` + `Results.Problem(... statusCode: 500)`** se ne izostavlja – to je deo uradjenog resenja iz Vezbe 06.
+- **`errors.Clear()` izmedju faza** je namerno: faza 2 pocinje sa praznom listom, pa `Count > 0` posle nje znaci samo greske iz baze.
+- Prva faza vraca `Results.Problem(...)`. Obavezno napisi `statusCode: 400`, jer `Results.Problem(detail: ...)` bez status koda vraca **500**.
+- Zadatak trazi da je i zauzet termin u formi **Problem Details** (naslov + opis). Ako ti to eksplicitno pise, zameni `Results.BadRequest(string.Join("; ", errors))` sa `Results.Problem(title: "Termin je zauzet!", detail: string.Join("; ", errors), statusCode: 400)` – 400 je i dalje 400, samo je PD telo korektno.
+- Ako se klijent zeznuo i posalje `brojProjekcije` – EF ce pokusati da ga upise. U testu ga ne saljes.
 
 ---
 
@@ -694,29 +785,61 @@ public class FilmoviController : ControllerBase
         var film = context.Filmovi.Find(id);
         if (film is null) return NotFound();
 
-        var greske = new List<string>();
+        List<string> errors = [];
+
+        // FAZA 1 – vreme i cena
         foreach (var p in projekcije)
         {
             p.FilmId = film.Id;
-            if (p.DatumVremePocetka <= DateTime.Now)
-                greske.Add($"Projekcija u sali {p.BrojSale} ({p.DatumVremePocetka}) nije u buducnosti");
-            if (p.CenaKarte <= 0)
-                greske.Add($"Projekcija u sali {p.BrojSale} ({p.DatumVremePocetka}) mora imati cenu vecu od 0");
+            if (p.DatumVremePocetka <= DateTime.Now || p.CenaKarte <= 0)
+            {
+                errors.Add($"Projekcija: mora biti u buducnosti i mora imati cenu vecu od 0");
+            }
         }
 
-        foreach (var d in projekcije.GroupBy(p => new { p.BrojSale, p.DatumVremePocetka }).Where(g => g.Count() > 1))
-            greske.Add($"Sala {d.Key.BrojSale} u {d.Key.DatumVremePocetka} se ponavlja u zahtevu");
+        // FAZA 1 – duplikati unutar zahteva
+        var duplikati = projekcije
+                        .GroupBy(p => new { p.BrojSale, p.DatumVremePocetka })
+                        .Where(g => g.Count() > 1);
 
+        foreach (var d in duplikati)
+        {
+            errors.Add($"Projekcija u sali {d.Key.BrojSale} u vreme {d.Key.DatumVremePocetka} se ponavlja");
+        }
+        if (errors.Count > 0)
+        {
+            return Problem(
+                title: "Projekcije nisu validne!",
+                detail: string.Join("; ", errors),
+                statusCode: 400);
+        }
+        errors.Clear();
+
+        // FAZA 2 – zauzet termin u bazi
         foreach (var p in projekcije)
+        {
             if (context.Projekcije.Any(x => x.BrojSale == p.BrojSale && x.DatumVremePocetka == p.DatumVremePocetka))
-                greske.Add($"Sala {p.BrojSale} je zauzeta u terminu {p.DatumVremePocetka}");
+            {
+                errors.Add($"U terminu {p.DatumVremePocetka} sala {p.BrojSale} je zauzeta");
+            }
+        }
+        if (errors.Count > 0)
+            return BadRequest(string.Join("; ", errors));
 
-        if (greske.Count > 0)
-            return Problem(title: "Neispravne projekcije", detail: string.Join("; ", greske), statusCode: 400);
-
-        context.Projekcije.AddRange(projekcije);
-        context.SaveChanges();
-        return Created($"api/filmovi/{film.Id}", null);
+        // UPIS
+        try
+        {
+            context.Projekcije.AddRange(projekcije);
+            context.SaveChanges();
+            return Created($"api/filmovi/{film.Id}", null);
+        }
+        catch (Exception ex)
+        {
+            return Problem(
+                title: "Doslo je do greske sa strane servera!",
+                detail: ex.Message,
+                statusCode: 500);
+        }
     }
 }
 ```
