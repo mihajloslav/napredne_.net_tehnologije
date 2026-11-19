@@ -116,13 +116,12 @@ Desni klik na projekat → `Manage NuGet Packages...` → tab **Browse** → tra
 |---|---|---|
 | **Infrastructure** | `Microsoft.EntityFrameworkCore.SqlServer` | EF Core + **provajder za SQL Server**. Daje `DbContext`, `DbSet`, LINQ upite i `UseSqlServer(...)` u `OnConfiguring`. Bez njega nema komunikacije sa bazom. |
 | **Infrastructure** | `Microsoft.EntityFrameworkCore.Tools` | Omogucava komande u **Package Manager Console**: `Add-Migration`, `Update-Database`, `Remove-Migration`... |
-| **Web projekat** | `Microsoft.EntityFrameworkCore.Design` | Projektni-vreme alati koje EF koristi da **napravi instancu konteksta i generise kod migracija**. Treba u startup projektu, jer EF migracije pokrece kroz njega. |
 
 **Sta je "Web projekat"?** To je ono sto pokreces (startup projekat) i sto prima HTTP zahteve – tj. **onaj projekat koji ti je zadat kao API**:
 - ako traze **Minimal API** → web projekat je `MinimalApi` (sablon *ASP.NET Core Empty* / Web API bez kontrolera),
 - ako traze **kontrolere** → web projekat je `RestWebApi` (Web API sa "Use controllers").
 
-Dakle **MinimalApi i RestWebApi nisu dva projekta koja oba pravis** – biras **jedan** od njih (zavisi sta kolokvijum trazi) i on je tvoj "Web projekat". Paket `Design` ide u taj jedan projekat.
+Dakle **MinimalApi i RestWebApi nisu dva projekta koja oba pravis** – biras **jedan** od njih (zavisi sta kolokvijum trazi) i on je tvoj "Web projekat".
 
 Verzija: ista **10.x** za sve EF pakete (npr. 10.0.x – kao u `Bioskop-Dopunjeno`). Ne mesaj verzije.
 
@@ -160,7 +159,6 @@ dotnet add Infrastructure reference Domain
 dotnet add MinimalApi reference Domain Infrastructure
 dotnet add Infrastructure package Microsoft.EntityFrameworkCore.SqlServer
 dotnet add Infrastructure package Microsoft.EntityFrameworkCore.Tools
-dotnet add MinimalApi package Microsoft.EntityFrameworkCore.Design
 ```
 
 ---
@@ -360,7 +358,7 @@ modelBuilder.Entity<Projekcija>().HasData(
 
 ### Ako migracija pogresi
 - Obrisi poslednju: `Remove-Migration` (samo ako nije primenjena na bazu).
-- "Unable to create DbContext" → fali Design paket u web projektu, ili Web projekat nije Set as Startup Project, ili je Default project u konzoli pogresan (mora Infrastructure).
+- "Unable to create DbContext" → Web projekat nije Set as Startup Project, ili je Default project u konzoli pogresan (mora Infrastructure).
 
 ---
 
@@ -588,20 +586,28 @@ Ako izmena ide na **projekciju** (dete): isti sablon, `PUT /projekcije/{id}`, al
 
 ---
 
-## 5. Middleware – ispis metode, putanje i status koda (3p)
+## 5. Middleware – ispis metode, putanje i status koda (3p) + dodatno: trajanje u ms
 
-U `Program.cs` **posle** `var app = builder.Build();`:
+> **DODATNO (ukoliko dodje):** merenje trajanja u milisekundama (`Stopwatch`). U zadatku iz Word dokumenta se traze samo metoda, putanja i status kod – ali ovo moze doci kao varijanta. Primer je u **`Vezbe 05/Vezbe05/MinimalAPI/Program.cs`** (middleware sa `Stopwatch`).
+
+U `Program.cs` **posle** `var app = builder.Build();` (potreban je `using System.Diagnostics;` zbog `Stopwatch`):
 ```csharp
 app.Use(async (context, next) =>
 {
-    await next();                                   // prvo obradi zahtev...
-    Console.WriteLine($"{context.Request.Method} {context.Request.Path} {context.Response.StatusCode}");
+    Stopwatch s = Stopwatch.StartNew();             // pokreni merenje PRE obrade zahteva
+    await next();                                   // obradi zahtev (ostatak pipeline-a)
+    Console.WriteLine($"{context.Request.Method} {context.Request.Path} {context.Response.StatusCode} {s.ElapsedMilliseconds} ms");
 });
 ```
+Primer ispisa u konzoli: `GET /filmovi 200 14 ms`
+
+Ako zadatak trazi **samo** metodu, putanju i status (bez vremena), izbaci `Stopwatch` i `s.*` linije – ostaje samo `await next();` pa `Console.WriteLine(...)`.
+
 **Zasto posle `next()`?** Status kod se postavlja tek kad ostatak pipeline-a obradi zahtev. Ako ispises pre `next()`, status je uvek 200.
+**Kako radi merenje:** `Stopwatch.StartNew()` pokrene stopericu, `await next()` izvrsi ceo zahtev (rute, baza...), a `ElapsedMilliseconds` vrati koliko je milisekundi proteklo od starta.
 Redosled: stavi ga rano (pre `MapGet/MapPost`).
 
-(Varijanta iz Vezbe 05: `Stopwatch` pre i posle `next()` za merenje vremena.)
+(Original iz **Vezbe 05**, fajl `Vezbe 05/Vezbe05/MinimalAPI/Program.cs`: `Stopwatch s = Stopwatch.StartNew(); await next(); Console.WriteLine($"Zahtev je obradjen za: {s.ElapsedMilliseconds}");`)
 
 ---
 
@@ -967,7 +973,7 @@ Uradi ceo zadatak na vreme od 90 min, bez kopiranja. Cilj: 70 min.
 
 | Simptom | Uzrok / resenje |
 |---|---|
-| `Unable to create a DbContext` pri `Add-Migration` | Startup projekat nije Web; Default project nije Infrastructure; fali `Microsoft.EntityFrameworkCore.Design` u API projektu |
+| `Unable to create a DbContext` pri `Add-Migration` | Startup projekat nije Web; Default project nije Infrastructure |
 | `Cannot open database` / login greska | LocalDB nije pokrenut: `sqllocaldb start mssqllocaldb`; proveri connection string |
 | `System.Text.Json ... possible object cycle` | Vracas entitet sa navigacijama – koristi `Select(new {...})` |
 | 400 `"The Film field is required"` (kontroler) | Navigaciju stavi nullable: `Film? Film` |

@@ -57,10 +57,30 @@ blockquote p { margin:.3em 0; }
 li { margin:.2em 0; }
 .menu { display:none; }
 @media (max-width:900px) {
-  aside { position:fixed; z-index:10; left:0; top:0; transform:translateX(-100%); transition:transform .2s; box-shadow:0 0 20px #0005; }
-  aside.open { transform:none; }
+  aside { position:fixed; z-index:10; left:0; top:0; transform:translateX(-100%); transition:transform .2s; }
+  aside.open { transform:none; box-shadow:0 0 20px #0005; }
   .menu { display:block; position:fixed; z-index:11; right:12px; top:12px; background:var(--side); color:var(--fg);
     border:1px solid var(--border); border-radius:8px; padding:6px 12px; font-size:14px; cursor:pointer; }
+}
+html, body { max-width:100%; overflow-x:clip; }
+article { width:100%; }
+p, li, td, th, h1, h2, h3, h4, blockquote, aside a { overflow-wrap:anywhere; }
+:not(pre) > code { overflow-wrap:anywhere; word-break:break-word; }
+table { width:100%; }
+td, th { min-width:0; }
+.highlight { max-width:100%; overflow:hidden; }
+.highlight pre { max-width:100%; }
+@media (max-width:600px) {
+  body { font-size:15px; }
+  main { padding:56px 14px 60px; }
+  h1 { font-size:1.55rem; }
+  h2 { font-size:1.3rem; }
+  h3 { font-size:1.1rem; }
+  .highlight pre { padding:10px 12px; }
+  .highlight code { font-size:12px; }
+  th, td { padding:5px 8px; font-size:13.5px; }
+  .copy { opacity:1; }
+  aside { width:85vw; max-width:320px; }
 }
 @media print { aside,.menu,.copy { display:none; } }
 pre { line-height: 125%; }
@@ -234,7 +254,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 <div class="layout">
 <aside>
   <div class="top"><span>Sadržaj</span><button class="theme" id="theme" title="Svetla/tamna tema">◐</button></div>
-  <nav><ul><li><a href="#tekst-zadatka-original-iz-word-dokumenta">Tekst zadatka (original iz Word dokumenta)</a></li><li><a href="#0-mapa-zadatka-50-poena-sta-se-uvek-trazi">0. Mapa zadatka (50 poena) – sta se uvek trazi</a></li><li><a href="#1-postavljanje-resenja-3-projekta-visual-studio-2026">1. Postavljanje resenja (3 projekta) – Visual Studio 2026</a><ul><li><a href="#korak-po-korak">Korak po korak</a></li><li><a href="#registracija-konteksta-u-di-3p-programcs">Registracija konteksta u DI (3p) – Program.cs</a></li><li><a href="#alternativa-za-brze-cli-isto-to-jednim-copy-paste">(Alternativa za brze) CLI – isto to, jednim copy-paste</a></li></ul></li><li><a href="#2-model-i-migracije-7p">2. Model i migracije (7p)</a><ul><li><a href="#21-korak-1-samo-film-init-3p">2.1 KORAK 1 – Samo Film + Init (3p)</a></li><li><a href="#22-korak-2-dodaj-projekciju-vezu-1-n-nova-migracija-4p">2.2 KORAK 2 – Dodaj Projekciju + vezu 1-N + nova migracija (4p)</a></li><li><a href="#23-primarni-kljuc-auto-inkrement-ili-ne-cesto-se-eksplicitno-trazi-u-zadatku">2.3 Primarni kljuc: AUTO-INKREMENT ili NE (cesto se eksplicitno trazi u zadatku!)</a></li><li><a href="#24-opciono-seed-podaci-bioskop-dopunjeno-ga-ima-na-kolokvijumu-verovatno-ne-traze">2.4 (Opciono) Seed podaci – Bioskop-Dopunjeno ga ima, na kolokvijumu verovatno NE traze</a></li><li><a href="#sve-komande-za-migracije-tabela-package-manager-console-dotnet-cli">Sve komande za migracije – tabela (Package Manager Console ↔ dotnet CLI)</a></li><li><a href="#ako-migracija-pogresi">Ako migracija pogresi</a></li></ul></li><li><a href="#3-linq-i-ef-cheat-sheet-sve-sto-ti-treba">3. LINQ i EF – cheat sheet (sve sto ti treba)</a></li><li><a href="#4-funkcionalnosti-minimal-api-bioskop-dopunjenominimalapiprogramcs">4. Funkcionalnosti – Minimal API (Bioskop-Dopunjeno/MinimalApi/Program.cs)</a><ul><li><a href="#41-get-filmovi-prikaz-pretraga-8p">4.1 GET /filmovi – prikaz + pretraga (8p)</a></li><li><a href="#42-post-filmovi-novi-film-5p">4.2 POST /filmovi – novi film (5p)</a></li><li><a href="#43-get-filmoviid-film-sa-projekcijama-5p">4.3 GET /filmovi/{id} – film sa projekcijama (5p)</a></li><li><a href="#44-post-filmoviidprojekcije-unos-vise-projekcija-14p-najvaznije">4.4 POST /filmovi/{id}/projekcije – unos vise projekcija (14p) ⭐ NAJVAZNIJE</a></li><li><a href="#45-put-filmoviid-izmena-update-filma-i-delete-ako-traze">4.5 PUT /filmovi/{id} – izmena (update) filma, i DELETE (ako traze)</a></li></ul></li><li><a href="#5-middleware-ispis-metode-putanje-i-status-koda-3p">5. Middleware – ispis metode, putanje i status koda (3p)</a></li><li><a href="#6-http-fajl-5p-minimum">6. .http fajl (5p) – minimum</a></li><li><a href="#7-ako-traze-kontrolere-umesto-minimal-api-vezbe-05-restwebapi">7. Ako traze KONTROLERE umesto Minimal API (Vezbe 05 – RestWebApi)</a><ul><li><a href="#71-razlike-u-podesavanju">7.1 Razlike u podesavanju</a></li><li><a href="#72-struktura-kontrolera-iz-productscontroller">7.2 Struktura kontrolera (iz ProductsController)</a></li><li><a href="#73-kompletan-filmovicontroller">7.3 Kompletan FilmoviController</a></li><li><a href="#74-minimal-api-vs-kontroleri-kratko-poredjenje">7.4 Minimal API vs kontroleri – kratko poredjenje</a></li></ul></li><li><a href="#8-plan-od-90-minuta">8. Plan od 90 minuta</a></li><li><a href="#9-kako-da-naucis-za-najkrace-vreme-plan-vezbanja">9. Kako da NAUCIS za najkrace vreme (plan vezbanja)</a><ul><li><a href="#pitanja-za-samoproveru-mogu-doci-i-usmenoteorija">Pitanja za samoproveru (mogu doci i usmeno/teorija)</a></li></ul></li><li><a href="#10-checklist-pred-predaju">10. Checklist pred predaju</a></li><li><a href="#11-cesti-problemi-i-brza-resenja">11. Cesti problemi i brza resenja</a></li></ul></nav>
+  <nav><ul><li><a href="#tekst-zadatka-original-iz-word-dokumenta">Tekst zadatka (original iz Word dokumenta)</a></li><li><a href="#0-mapa-zadatka-50-poena-sta-se-uvek-trazi">0. Mapa zadatka (50 poena) – sta se uvek trazi</a></li><li><a href="#1-postavljanje-resenja-3-projekta-visual-studio-2026">1. Postavljanje resenja (3 projekta) – Visual Studio 2026</a><ul><li><a href="#korak-po-korak">Korak po korak</a></li><li><a href="#registracija-konteksta-u-di-3p-programcs">Registracija konteksta u DI (3p) – Program.cs</a></li><li><a href="#alternativa-za-brze-cli-isto-to-jednim-copy-paste">(Alternativa za brze) CLI – isto to, jednim copy-paste</a></li></ul></li><li><a href="#2-model-i-migracije-7p">2. Model i migracije (7p)</a><ul><li><a href="#21-korak-1-samo-film-init-3p">2.1 KORAK 1 – Samo Film + Init (3p)</a></li><li><a href="#22-korak-2-dodaj-projekciju-vezu-1-n-nova-migracija-4p">2.2 KORAK 2 – Dodaj Projekciju + vezu 1-N + nova migracija (4p)</a></li><li><a href="#23-primarni-kljuc-auto-inkrement-ili-ne-cesto-se-eksplicitno-trazi-u-zadatku">2.3 Primarni kljuc: AUTO-INKREMENT ili NE (cesto se eksplicitno trazi u zadatku!)</a></li><li><a href="#24-opciono-seed-podaci-bioskop-dopunjeno-ga-ima-na-kolokvijumu-verovatno-ne-traze">2.4 (Opciono) Seed podaci – Bioskop-Dopunjeno ga ima, na kolokvijumu verovatno NE traze</a></li><li><a href="#sve-komande-za-migracije-tabela-package-manager-console-dotnet-cli">Sve komande za migracije – tabela (Package Manager Console ↔ dotnet CLI)</a></li><li><a href="#ako-migracija-pogresi">Ako migracija pogresi</a></li></ul></li><li><a href="#3-linq-i-ef-cheat-sheet-sve-sto-ti-treba">3. LINQ i EF – cheat sheet (sve sto ti treba)</a></li><li><a href="#4-funkcionalnosti-minimal-api-bioskop-dopunjenominimalapiprogramcs">4. Funkcionalnosti – Minimal API (Bioskop-Dopunjeno/MinimalApi/Program.cs)</a><ul><li><a href="#41-get-filmovi-prikaz-pretraga-8p">4.1 GET /filmovi – prikaz + pretraga (8p)</a></li><li><a href="#42-post-filmovi-novi-film-5p">4.2 POST /filmovi – novi film (5p)</a></li><li><a href="#43-get-filmoviid-film-sa-projekcijama-5p">4.3 GET /filmovi/{id} – film sa projekcijama (5p)</a></li><li><a href="#44-post-filmoviidprojekcije-unos-vise-projekcija-14p-najvaznije">4.4 POST /filmovi/{id}/projekcije – unos vise projekcija (14p) ⭐ NAJVAZNIJE</a></li><li><a href="#45-put-filmoviid-izmena-update-filma-i-delete-ako-traze">4.5 PUT /filmovi/{id} – izmena (update) filma, i DELETE (ako traze)</a></li></ul></li><li><a href="#5-middleware-ispis-metode-putanje-i-status-koda-3p-dodatno-trajanje-u-ms">5. Middleware – ispis metode, putanje i status koda (3p) + dodatno: trajanje u ms</a></li><li><a href="#6-http-fajl-5p-minimum">6. .http fajl (5p) – minimum</a></li><li><a href="#7-ako-traze-kontrolere-umesto-minimal-api-vezbe-05-restwebapi">7. Ako traze KONTROLERE umesto Minimal API (Vezbe 05 – RestWebApi)</a><ul><li><a href="#71-razlike-u-podesavanju">7.1 Razlike u podesavanju</a></li><li><a href="#72-struktura-kontrolera-iz-productscontroller">7.2 Struktura kontrolera (iz ProductsController)</a></li><li><a href="#73-kompletan-filmovicontroller">7.3 Kompletan FilmoviController</a></li><li><a href="#74-minimal-api-vs-kontroleri-kratko-poredjenje">7.4 Minimal API vs kontroleri – kratko poredjenje</a></li></ul></li><li><a href="#8-plan-od-90-minuta">8. Plan od 90 minuta</a></li><li><a href="#9-kako-da-naucis-za-najkrace-vreme-plan-vezbanja">9. Kako da NAUCIS za najkrace vreme (plan vezbanja)</a><ul><li><a href="#pitanja-za-samoproveru-mogu-doci-i-usmenoteorija">Pitanja za samoproveru (mogu doci i usmeno/teorija)</a></li></ul></li><li><a href="#10-checklist-pred-predaju">10. Checklist pred predaju</a></li><li><a href="#11-cesti-problemi-i-brza-resenja">11. Cesti problemi i brza resenja</a></li></ul></nav>
 </aside>
 <main><article>
 <h1 id="skripta-za-prvi-kolokvijum-net-ef-core-linq-veza-1-n">Skripta za prvi kolokvijum – .NET, EF Core, LINQ, veza 1-N</h1>
@@ -422,11 +442,6 @@ Desni klik na projekat → <code>Manage NuGet Packages...</code> → tab <strong
 <td><code>Microsoft.EntityFrameworkCore.Tools</code></td>
 <td>Omogucava komande u <strong>Package Manager Console</strong>: <code>Add-Migration</code>, <code>Update-Database</code>, <code>Remove-Migration</code>...</td>
 </tr>
-<tr>
-<td><strong>Web projekat</strong></td>
-<td><code>Microsoft.EntityFrameworkCore.Design</code></td>
-<td>Projektni-vreme alati koje EF koristi da <strong>napravi instancu konteksta i generise kod migracija</strong>. Treba u startup projektu, jer EF migracije pokrece kroz njega.</td>
-</tr>
 </tbody>
 </table>
 <p><strong>Sta je "Web projekat"?</strong> To je ono sto pokreces (startup projekat) i sto prima HTTP zahteve – tj. <strong>onaj projekat koji ti je zadat kao API</strong>:</p>
@@ -434,7 +449,7 @@ Desni klik na projekat → <code>Manage NuGet Packages...</code> → tab <strong
 <li>ako traze <strong>Minimal API</strong> → web projekat je <code>MinimalApi</code> (sablon <em>ASP.NET Core Empty</em> / Web API bez kontrolera),</li>
 <li>ako traze <strong>kontrolere</strong> → web projekat je <code>RestWebApi</code> (Web API sa "Use controllers").</li>
 </ul>
-<p>Dakle <strong>MinimalApi i RestWebApi nisu dva projekta koja oba pravis</strong> – biras <strong>jedan</strong> od njih (zavisi sta kolokvijum trazi) i on je tvoj "Web projekat". Paket <code>Design</code> ide u taj jedan projekat.</p>
+<p>Dakle <strong>MinimalApi i RestWebApi nisu dva projekta koja oba pravis</strong> – biras <strong>jedan</strong> od njih (zavisi sta kolokvijum trazi) i on je tvoj "Web projekat".</p>
 <p>Verzija: ista <strong>10.x</strong> za sve EF pakete (npr. 10.0.x – kao u <code>Bioskop-Dopunjeno</code>). Ne mesaj verzije.</p>
 <p><strong>6) Startup projekat</strong>
 Desni klik na <strong>Web projekat → Set as Startup Project</strong> (bice podebljan). Bez ovoga migracije ne rade.</p>
@@ -468,7 +483,6 @@ dotnet<span class="w"> </span>add<span class="w"> </span>Infrastructure<span cla
 dotnet<span class="w"> </span>add<span class="w"> </span>MinimalApi<span class="w"> </span>reference<span class="w"> </span>Domain<span class="w"> </span>Infrastructure
 dotnet<span class="w"> </span>add<span class="w"> </span>Infrastructure<span class="w"> </span>package<span class="w"> </span>Microsoft.EntityFrameworkCore.SqlServer
 dotnet<span class="w"> </span>add<span class="w"> </span>Infrastructure<span class="w"> </span>package<span class="w"> </span>Microsoft.EntityFrameworkCore.Tools
-dotnet<span class="w"> </span>add<span class="w"> </span>MinimalApi<span class="w"> </span>package<span class="w"> </span>Microsoft.EntityFrameworkCore.Design
 </code></pre></div>
 
 <hr />
@@ -748,7 +762,7 @@ Uvek pocni od <strong>deteta (N strane)</strong>.</p>
 <h3 id="ako-migracija-pogresi">Ako migracija pogresi</h3>
 <ul>
 <li>Obrisi poslednju: <code>Remove-Migration</code> (samo ako nije primenjena na bazu).</li>
-<li>"Unable to create DbContext" → fali Design paket u web projektu, ili Web projekat nije Set as Startup Project, ili je Default project u konzoli pogresan (mora Infrastructure).</li>
+<li>"Unable to create DbContext" → Web projekat nije Set as Startup Project, ili je Default project u konzoli pogresan (mora Infrastructure).</li>
 </ul>
 <hr />
 <h2 id="3-linq-i-ef-cheat-sheet-sve-sto-ti-treba">3. LINQ i EF – cheat sheet (sve sto ti treba)</h2>
@@ -981,18 +995,25 @@ Uvek pocni od <strong>deteta (N strane)</strong>.</p>
 </table>
 <p>Ako izmena ide na <strong>projekciju</strong> (dete): isti sablon, <code>PUT /projekcije/{id}</code>, ali pri izmeni sale/vremena proveri koliziju sa <strong>drugim</strong> projekcijama: <code>context.Projekcije.Any(x =&gt; x.BrojProjekcije != id &amp;&amp; x.BrojSale == izmena.BrojSale &amp;&amp; x.DatumVremePocetka == izmena.DatumVremePocetka)</code>, plus buducnost i cena &gt; 0.</p>
 <hr />
-<h2 id="5-middleware-ispis-metode-putanje-i-status-koda-3p">5. Middleware – ispis metode, putanje i status koda (3p)</h2>
-<p>U <code>Program.cs</code> <strong>posle</strong> <code>var app = builder.Build();</code>:</p>
+<h2 id="5-middleware-ispis-metode-putanje-i-status-koda-3p-dodatno-trajanje-u-ms">5. Middleware – ispis metode, putanje i status koda (3p) + dodatno: trajanje u ms</h2>
+<blockquote>
+<p><strong>DODATNO (ukoliko dodje):</strong> merenje trajanja u milisekundama (<code>Stopwatch</code>). U zadatku iz Word dokumenta se traze samo metoda, putanja i status kod – ali ovo moze doci kao varijanta. Primer je u <strong><code>Vezbe 05/Vezbe05/MinimalAPI/Program.cs</code></strong> (middleware sa <code>Stopwatch</code>).</p>
+</blockquote>
+<p>U <code>Program.cs</code> <strong>posle</strong> <code>var app = builder.Build();</code> (potreban je <code>using System.Diagnostics;</code> zbog <code>Stopwatch</code>):</p>
 <div class="highlight"><pre><span></span><code><span class="n">app</span><span class="p">.</span><span class="n">Use</span><span class="p">(</span><span class="k">async</span><span class="w"> </span><span class="p">(</span><span class="n">context</span><span class="p">,</span><span class="w"> </span><span class="n">next</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span>
 <span class="p">{</span>
-<span class="w">    </span><span class="k">await</span><span class="w"> </span><span class="nf">next</span><span class="p">();</span><span class="w">                                   </span><span class="c1">// prvo obradi zahtev...</span>
-<span class="w">    </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$"{context.Request.Method} {context.Request.Path} {context.Response.StatusCode}"</span><span class="p">);</span>
+<span class="w">    </span><span class="n">Stopwatch</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Stopwatch</span><span class="p">.</span><span class="n">StartNew</span><span class="p">();</span><span class="w">             </span><span class="c1">// pokreni merenje PRE obrade zahteva</span>
+<span class="w">    </span><span class="k">await</span><span class="w"> </span><span class="nf">next</span><span class="p">();</span><span class="w">                                   </span><span class="c1">// obradi zahtev (ostatak pipeline-a)</span>
+<span class="w">    </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$"{context.Request.Method} {context.Request.Path} {context.Response.StatusCode} {s.ElapsedMilliseconds} ms"</span><span class="p">);</span>
 <span class="p">});</span>
 </code></pre></div>
 
+<p>Primer ispisa u konzoli: <code>GET /filmovi 200 14 ms</code></p>
+<p>Ako zadatak trazi <strong>samo</strong> metodu, putanju i status (bez vremena), izbaci <code>Stopwatch</code> i <code>s.*</code> linije – ostaje samo <code>await next();</code> pa <code>Console.WriteLine(...)</code>.</p>
 <p><strong>Zasto posle <code>next()</code>?</strong> Status kod se postavlja tek kad ostatak pipeline-a obradi zahtev. Ako ispises pre <code>next()</code>, status je uvek 200.
+<strong>Kako radi merenje:</strong> <code>Stopwatch.StartNew()</code> pokrene stopericu, <code>await next()</code> izvrsi ceo zahtev (rute, baza...), a <code>ElapsedMilliseconds</code> vrati koliko je milisekundi proteklo od starta.
 Redosled: stavi ga rano (pre <code>MapGet/MapPost</code>).</p>
-<p>(Varijanta iz Vezbe 05: <code>Stopwatch</code> pre i posle <code>next()</code> za merenje vremena.)</p>
+<p>(Original iz <strong>Vezbe 05</strong>, fajl <code>Vezbe 05/Vezbe05/MinimalAPI/Program.cs</code>: <code>Stopwatch s = Stopwatch.StartNew(); await next(); Console.WriteLine($"Zahtev je obradjen za: {s.ElapsedMilliseconds}");</code>)</p>
 <hr />
 <h2 id="6-http-fajl-5p-minimum">6. <code>.http</code> fajl (5p) – minimum</h2>
 <div class="highlight"><pre><code><span class="nv">@host </span><span class="o">=</span><span class="s"> https://localhost:7007</span>
@@ -1438,7 +1459,7 @@ Uradi ceo zadatak na vreme od 90 min, bez kopiranja. Cilj: 70 min.</p>
 <tbody>
 <tr>
 <td><code>Unable to create a DbContext</code> pri <code>Add-Migration</code></td>
-<td>Startup projekat nije Web; Default project nije Infrastructure; fali <code>Microsoft.EntityFrameworkCore.Design</code> u API projektu</td>
+<td>Startup projekat nije Web; Default project nije Infrastructure</td>
 </tr>
 <tr>
 <td><code>Cannot open database</code> / login greska</td>
